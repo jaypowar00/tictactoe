@@ -48,6 +48,8 @@ body{
 	display: inline-block;
 	font:bold normal 32px georgia;
 	border-radius: 1000px;
+	transition-duration: 0.6s;
+	cursor: pointer;
 }
 .container #input #btn:hover{
 	border: 3px solid blue;
@@ -56,11 +58,35 @@ body{
 	color: black;
 	box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
 }
-.container #input #btn{
+#input2{
+	position: fixed 1px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+#input2 #btn-reset{
+	margin-top: 20px;
+	background-color: blue;
+	border: none;
+	color: white;
+	padding: 14px 40px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font:bold normal 12px georgia;
+	border-radius: 1000px;
+	margin-right: auto;
+	margin-left: auto;
 	transition-duration: 0.6s;
 	cursor: pointer;
 }
-
+#input2 #btn-reset:hover{
+	border: 3px solid blue;
+	background-color: white;
+	background-image: none;
+	color: black;
+	box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
+}
 #dashboard{
 	margin-left: auto;
 	margin-right: auto; 

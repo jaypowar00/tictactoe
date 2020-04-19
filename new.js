@@ -44,11 +44,12 @@ function startTheGame(playbtn){
 	    <td id="c21"></td>
 	    <td id="c22"></td>
  	</tr>`;
-	places = [1,2,3,4,5,6,7,8,9];
+ 	document.getElementById('input2').innerHTML = `<input type="reset" id="btn-reset" value="Reset" onclick="resetGame()"></button><br>`;
  	theGameBegins();
 }
 function theGameBegins(){
 
+	places = [1,2,3,4,5,6,7,8,9];
  	console.log(places);
  	console.log(tic);
  	console.log("Bot Is Working");
@@ -95,16 +96,28 @@ function theGameBegins(){
 			console.log(move);
 			if (turn) {
 				console.log("before bot"+places.length);
-				rand = places[Math.floor(Math.random() * places.length)];
-				while(rand >= places.length){
+				if(places.length>2){
 					rand = places[Math.floor(Math.random() * places.length)];
+					while(rand >= places.length){
+						rand = places[Math.floor(Math.random() * places.length)];
+					}
+					console.log("rand 1- "+rand);
+					console.log("place[rand] - "+places[rand]);
+					var newindex = places[rand];
+					remove_array_element(places[rand]);
+					console.log("~~~~~"+tic[newindex-1]);
+					$(tic[newindex-1]).text("O");
+				}else{
+					var arr = [0,1];
+					console.log(arr);
+					newindex = arr[Math.floor(Math.random()*arr.length)];
+					console.log(newindex);
+					console.log(places[newindex]);
+					console.log("````"+tic[places[newindex]]);
+					$(tic[places[newindex]]).text("O");
+					remove_array_element(places[newindex]);
 				}
-				console.log("rand 1- "+rand);
-				console.log("rand 2- "+rand);
-				console.log("place[rand] - "+places[rand]);
-				var newindex = places[rand];
-				remove_array_element(places[rand]);
-				$(tic[newindex-1]).text("O");
+				console.log(tic);
 				move++;
 				console.log("after bot"+places.length);
 			}
@@ -147,4 +160,14 @@ function theGameBegins(){
 	   			places.splice(index, 1);
 			}
 	 	};
+    };
+    function resetGame(){
+    	var i=0;
+    	while(i<9){
+    		$(tic[i]).text("");
+    		i++;
+    	}
+    	move=0;
+    	turn=true;
+    	theGameBegins();
     };
